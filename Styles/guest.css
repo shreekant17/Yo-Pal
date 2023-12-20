@@ -1,0 +1,19 @@
+.middle .stories, nav .create, .middle .create-post{
+    display: none;
+}
+
+#profile-left{
+    display: none;
+}
+
+.follow{
+    display: none;
+}
+
+.writeComment{
+    display: none;
+}
+
+#Explore, #notifications, #messages-notification{
+    display: none;
+}
