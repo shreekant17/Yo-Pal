@@ -1,0 +1,1454 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playball&family=Poppins:wght@300;400;500;600&display=swap');
+@font-face {
+    font-family: 'Daizen';
+    src: url('../Font/Daizen.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Playball';
+    src: url('../Font/Playball-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+:root {
+    --primary-color-hue: 252;
+    --dark-color-lightness: 17%;
+    --light-color-lightness: 95%;
+    --white-color-lightness: 100%;
+    --color-dark: hsl(252, 30%, var(--dark-color-lightness));
+    --color-light: hsl(252, 30%, var(--light-color-lightness));
+    --color-white: hsl(252, 30%, var(--white-color-lightness));
+    --color-gray: hsl(var(--primary-color-hue), 15%, 65%);
+    --color-primary: hsl(var(--primary-color-hue), 75%, 60%);
+    --color-secondary: hsl(252, 100%, 90%);
+    --color-success: hsl(120, 95%, 65%);
+    --color-danger: hsl(0, 95%, 60%);
+    --color-black: hsl(252, 30%, 10%);
+
+    --border-radius: 2rem;
+    --card-border-radius: 1rem;
+    --btn-padding: 0.6rem 2rem;
+    --search-padding: 0.6rem 1rem;
+    --card-padding: 1rem;
+
+    --sticky-top-left: 5.4rem;
+    --sticky-top-right: -18rem;
+
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-dark);
+    background: var(--color-light);
+    overflow-x: hidden;
+}
+
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.profile-picture {
+    width: 2.7rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.btn {
+    display: inline-block;
+    padding: var(--btn-padding);
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 300ms ease;
+    font-size: 0.9rem;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+}
+
+.text-bold {
+    font-weight: 500;
+}
+
+.text-muted {
+    color: var(--color-gray);
+}
+
+
+/*======================Navbar============================*/
+
+nav {
+    width: 100%;
+    background: var(--color-white);
+    padding: 0.7rem 0;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .container .logo {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+nav .container .logo .logo1 {
+    font-size: 2rem;
+    font-family: 'Playball', cursive;
+    font: 'playball';
+    color: black;
+    user-select: none;
+    background-color: #000080;
+    padding-left: .1rem;
+    padding-right: .25rem;
+    -webkit-text-stroke-color: transparent;
+    -webkit-text-stroke-width: calc(.01em /16);
+    -webkit-background-clip: text;
+    text-shadow: 0 0 2px #000080;
+}
+
+.logo2 {
+    font-size: 2rem;
+    font-family: 'Daizen', sans-serif;
+    font: 'Daizen';
+    color: black;
+    user-select: none;
+    background-color: aqua;
+    padding-left: .135rem;
+    padding-right: .3rem;
+    -webkit-text-stroke-color: transparent;
+    -webkit-text-stroke-width: calc(.01em /16);
+    -webkit-background-clip: text;
+    text-shadow: 0 0 2px aqua;
+}
+
+
+
+
+.search-bar {
+    margin-left: 4rem;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    /* height of the gray line */
+}
+
+.right .search-bar{
+    margin-left: -0.4rem;
+}
+
+.search-bar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    /* height of the gray line */
+    background-color: gray;
+    transition: all 0.3s ease;
+    transform: scaleY(1);
+    transform-origin: center bottom;
+}
+
+.search-bar:hover::after {
+    transform: scaleY(0);
+}
+
+.search-bar::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    /* height of the red line */
+    background-image: linear-gradient(120deg, #000080, aqua);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    transform-origin: center bottom;
+}
+
+.search-bar:hover::before {
+    width: 100%;
+}
+
+.search-bar input[type="search"] {
+    background: transparent;
+    width: 35vw;
+    margin-left: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-dark);
+    padding:.1rem;
+}
+
+nav .search-bar input[type="search"]::placeholder {
+    color: black;
+}
+
+nav .create {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/*===================MAIN======================*/
+
+main {
+    position: relative;
+    top: 6rem;
+}
+
+main .container {
+    display: grid;
+    grid-template-columns: 18vw auto 20vw;
+    column-gap: 2rem;
+    position: relative;
+}
+
+
+/*===================LEFT=========================*/
+main .container .left {
+    height: max-content;
+    position: sticky;
+    top: var(--sticky-top-left);
+}
+
+main .container .left .profile {
+    padding: var(--card-padding);
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/*-----------------sidebar-------------------------*/
+
+.left .sidebar {
+    margin-top: 0.1rem;
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+}
+
+.left .sidebar .menu-item {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    cursor: pointer;
+    transition: all 300ms ease;
+    position: relative;
+}
+
+.left .sidebar .menu-item:hover {
+    background: var(--color-light);
+}
+
+.left .sidebar i {
+    font-size: 1.4rem;
+    color: var (--color-grey);
+    margin-left: 2rem;
+    position: relative;
+}
+
+.left .sidebar i .notification-count {
+    background: var(--color-danger);
+    color: white;
+    font-size: 0.7rem;
+    width: fit-content;
+    border-radius: 0.8rem;
+    padding: 0.1rem 0.4rem;
+    position: absolute;
+    top: -0.2rem;
+    right: -0.3rem;
+}
+
+.left .sidebar h3 {
+    margin-left: 1rem;
+    font-size: 1rem;
+}
+
+.left .sidebar .active {
+    background: var(--color-light);
+}
+
+.left .sidebar .active i,
+.left .sidebar .active h3 {
+    color: var(--color-primary);
+}
+
+.left .sidebar .active::before {
+    content: "";
+    display: block;
+    width: 0.5rem;
+    height: 100%;
+    position: absolute;
+    background: var(--color-primary);
+}
+
+.left .sidebar .menu-item:first-child.active {
+    border-top-left-radius: var(--card-border-radius);
+    overflow: hidden;
+}
+
+.left .sidebar .menu-item:last-child.active {
+    border-bottom-left-radius: var(--card-border-radius);
+    overflow: hidden;
+}
+/*----------Notifications-popup---------------------------------*/
+
+.left .notification-popup {
+    position: absolute;
+    top: 0;
+    left: 110%;
+    width: 30rem;
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: 0 0 2rem hsl(var(--color-primary), 75%, 60% 25%);
+    z-index: 8;
+    display: none;
+}
+
+.left .notification-popup::before {
+    content: "";
+    width: 1.2rem;
+    height: 1.2rem;
+    display: block;
+    background: var(--color-white);
+    position: absolute;
+    left: -0.6rem;
+    transform: rotate(45deg);
+}
+
+.left .notification-popup>div {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+.left .notification-popup small {
+    display: block;
+}
+
+
+/*========================Middle===================*/
+
+
+.middle .stories {
+    display: flex;
+    justify-content: space-between;
+    height: 12rem;
+    gap: 0.5rem;
+    display:none;
+}
+
+.middle .stories .story {
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 0.75rem;
+    width: 100%;
+    background-color: red;
+    position: relative;
+    overflow: hidden;
+}
+
+.middle .stories .story::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 5rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+    position: absolute;
+    bottom: 0;
+
+}
+
+.middle .stories .story .name {
+    z-index: 2;
+}
+
+.middle .stories .story:nth-child(1) {
+    background: url("./images/st1.jpg") no-repeat center center/cover;
+}
+
+.middle .stories .story:nth-child(2) {
+    background: url("./images/st2.jpg") no-repeat center center/cover;
+}
+
+.middle .stories .story:nth-child(3) {
+    background: url("./images/st3.jpg") no-repeat center center/cover;
+}
+
+.middle .stories .story:nth-child(4) {
+    background: url("./images/profile-2.jpg") no-repeat center center/cover;
+}
+
+.middle .stories .story:nth-child(5) {
+    background: url("./images/profile-2.jpg") no-repeat center center/cover;
+}
+
+.middle .story .profile-picture {
+    width: 2rem;
+    height: 2rem;
+    align-self: start;
+    border: 3px solid var(--color-primary);
+}
+
+/*===================Create Post======================*/
+.middle .create-post {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    background: var(--color-white);
+    padding: 0.4rem var(--card-padding);
+    border-radius: var(--border-radius);
+}
+
+.middle .create-post input[type="text"] {
+    justify-self: start;
+    width: 100%;
+    padding-left: 1rem;
+    background: transparent;
+    color: var(--color-dark);
+    margin-right: 1rem;
+}
+
+/*---------------------Feeds----------------------*/
+
+.middle .feeds .feed {
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    margin: 1rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.middle .feed .head {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.middle .feed .head .user .profile-picture{
+    height: fit-content; 
+}
+
+.middle .feed .user {
+    display: flex;
+    gap: 1rem;
+}
+
+.middle .feed .photo {
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    margin: 0.7rem 0;
+}
+
+.middle .feed .action-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+    margin: 0.6rem;
+}
+
+.middle .liked-by {
+    display: flex;
+}
+
+.middle .liked-by span {
+    width: 1.4rem;
+    height: 1.4rem;
+    display: block;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solidvar(--color-white);
+    margin-left: -0.6rem;
+}
+
+.middle .liked-by .span:first-child {
+    margin: 0;
+}
+
+.middle .liked-by p {
+    margin-left: 0.5rem;
+}
+
+/*----------------------right------------------*/
+main .container .right {
+    height: max-content;
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 17rem;
+    justify-content: right;
+    
+}
+
+.right .messages {
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    
+}
+
+
+.right .messages .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.right .messages i {
+    font-size: 1.4rem;
+}
+
+
+.right .messages .search-bar {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.right .messages .category {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.right .messages .category h6 {
+    width: 100%;
+    text-align: center;
+    border-bottom: 4px solid var(--color-light);
+    padding-bottom: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.right .messages .category .active {
+    border-color: var(--color-dark);
+}
+
+.right .message .message-requests {
+    color: var(--color-primary);
+}
+
+.right .messages .message {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: right;
+}
+
+.right .message .profile-picture {
+    position: relative;
+    overflow: visible;
+}
+
+.right .profile-picture img {
+    border-radius: 50%;
+}
+
+.right .messages .message:last-child {
+    margin: 0;
+}
+
+.right .messages .message p {
+    font-size: 0.8rem;
+}
+
+.right .messages .message .profile-picture .active {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    border: 3px solid var(--color-white);
+    background: var(--color-success);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/*===================Friend Requests=========================*/
+.right .friend-requests {
+    margin-top: 1rem;
+    
+}
+
+.right .friend-requests h4 {
+    color: var(--color-gray);
+    margin-bottom: 1rem;
+}
+
+.right .request {
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-bottom: 0.7rem;
+}
+
+.right .request .info {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.right .request .action {
+    display: flex;
+    gap: 1rem;
+}
+
+/*=====================Theme Customization===================*/
+.customize-theme {
+    background: rgba(255, 255, 255, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.customize-theme .card {
+    background: var(--color-white);
+    padding: 3rem;
+    border-radius: var(--card-border-radius);
+    width: 50%;
+    box-shadow: 0 0 1rem var(--color-primary);
+}
+
+/*----------------Font Size---------------*/
+.customize-theme .font-size {
+    margin-top: 5rem;
+
+}
+
+.customize-theme .font-size>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-light);
+    padding: var(--search-padding);
+    border-radius: var(--card-border-radius);
+}
+
+.customize-theme .choose-size {
+    background: var(--color-secondary);
+    height: 0.3rem;
+    width: 100%;
+    margin: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.customize-theme .choose-size span {
+    width: 1rem;
+    height: 1rem;
+    background: var(--color-secondary);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.customize-theme .choose-size span.active {
+    background: var(--color-primary);
+}
+
+/*---------------Colors----------------------------*/
+.customize-theme .color {
+    margin-top: 2rem;
+}
+
+.customize-theme .choose-color {
+    background: var(--color-light);
+    padding: var(--search-padding);
+    border-radius: var(--card-border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.customize-theme .choose-color span {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+}
+
+.customize-theme .choose-color span:nth-child(1) {
+    background: hsl(252, 75%, 60%);
+}
+
+.customize-theme .choose-color span:nth-child(2) {
+    background: hsl(52, 75%, 60%);
+}
+
+.customize-theme .choose-color span:nth-child(3) {
+    background: hsl(352, 75%, 60%);
+}
+
+.customize-theme .choose-color span:nth-child(4) {
+    background: hsl(152, 75%, 60%);
+}
+
+.customize-theme .choose-color span:nth-child(5) {
+    background: hsl(202, 75%, 60%);
+}
+
+.customize-theme .choose-color span.active {
+    border: 5px solid white;
+
+}
+
+/*-------------Background----------------*/
+.customize-theme .background {
+    margin-top: 2rem;
+
+}
+
+.customize-theme .choose-bg {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.customize-theme .choose-bg>div {
+    padding: var(--card-padding);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+
+.customize-theme .choose-bg>div.active {
+    border: 2px solid var(--color-primary);
+}
+
+.customize-theme .choose-bg .bg-1 {
+    background: white;
+    color: black;
+}
+
+.customize-theme .choose-bg .bg-2 {
+    background: hsl(252, 30%, 17%);
+    color: white;
+}
+
+.customize-theme .choose-bg .bg-3 {
+    background: hsl(252, 30%, 10%);
+    color: white;
+}
+
+.customize-theme .choose-bg>div span {
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid var(--color-gray);
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.profile-picture{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: .5em;
+}
+
+#customize-profile {
+    display: none;
+    position: absolute;
+    background-color: white;
+    z-index: 100;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    align-items: center;
+    box-shadow: 0 0 1rem var(--color-primary);
+    margin-left: -4.5em;   
+    /* other styles */
+}
+
+.picture-card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 1em;
+}
+
+.profile-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.profile-card a:hover{
+    background-color: var(--color-secondary);
+
+}
+
+.profile-card-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    width: 100%;
+    margin-left: -2em;
+    margin-bottom: -1em;
+
+}
+
+.profile-card-menu a{
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-right: 7em;
+    padding-left: 1em;
+    display: flex;
+    width:200px;
+    align-items: center;
+    user-select: none;
+}
+
+.profile-card-menu a:last-child{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.profile-card-menu a i{
+    font-size: 20px;
+    margin-right: 1em;
+}
+
+
+.username-card{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-left: 3px;
+}
+
+.username-card a h6{
+    padding-left: 3px;
+}
+
+#profilepic:hover{
+    opacity: 0.8;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+
+/*======Create=======*/
+
+
+
+.createMenu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    z-index: 100;
+    padding: 1rem;
+    margin-top: .5rem;
+    border-radius: 10px;
+    align-items: center;
+    box-shadow: 0 0 1rem var(--color-primary);
+    /* other styles */
+    margin-left: 1.1rem;
+}
+
+#createPost{
+    background: rgba(0, 0, 0, 0.219);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    z-index: 100;
+    text-align: center;
+    place-items: center;
+    font-size: 0.9rem;
+    display: none;
+    align-items: center;
+}
+
+#createStory{
+        background: rgba(0, 0, 0, 0.219);
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        text-align: center;
+        place-items: center;
+        font-size: 0.9rem;
+        display: none;
+        align-items: center;
+}
+
+.create-card{
+    background: var(--color-white);
+    padding: 3rem;
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 0 1rem var(--color-primary);
+    width: 50%;
+    height: 70%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-card h2{
+    color: black;
+    position: relative;
+    margin: 1em;
+}
+
+.create-card .UploadPost{
+    margin: 2em;
+}
+.create-card .UploadPost label{
+    cursor: pointer;
+    background: var(--color-primary);
+    color: white;
+    padding: .5em;
+    border-radius: var(--card-border-radius);
+}
+
+.create-card .UploadPost #postButton{
+    display: none;
+}
+
+.create-card img{
+    width: auto;
+    height: 250px;
+    margin: 1em;
+
+}
+
+.create-card .UploadPost input{
+    display: none;
+}
+
+.captionAndPost{
+    display: flex;
+    flex-direction:row ;
+    justify-content: space-between;
+    gap: .5em;
+    width: 40vw;
+    margin-top: 1em;
+}
+.captionAndPost input[type="text"]{
+    width:100%;
+    
+}
+
+
+/*===================Profile Page====================*/
+
+.profileInfo{
+    display: none;
+    justify-content: center; 
+}
+
+.profileInfo .userDetails{
+    display: flex;
+    flex-direction: column;
+    margin-left: 3em;
+}
+
+
+.profileInfo .profilePicture{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profileInfo .followersInfo{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    margin-top: 1em;
+}
+
+
+
+/*=====================Change DP====================*/
+
+
+.changeDp{
+    background: rgba(0, 0, 0, 0.219);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    text-align: center;
+    place-items: center;
+    font-size: 0.9rem;
+    display: none;
+    align-items: center;
+}
+
+
+.changeDP-card {
+    background: var(--color-white);
+    padding: 3rem;
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 0 1rem var(--color-primary);
+    width: 50%;
+    height: 70%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.changeDP-card h2 {
+    color: black;
+    position: relative;
+    margin: 1em;
+}
+
+.changeDP-card .UploadDp {
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.changeDP-card .UploadDp label {
+    cursor: pointer;
+    background: var(--color-primary);
+    color: white;
+    padding: 1em;
+    border-radius: var(--card-border-radius);
+    font-size: 12px;
+}
+
+.changeDp-card .UploadDp input{
+    display: none;
+}
+
+.changeDP-card .UploadDp input[type="submit"]{
+    display: none;
+}
+
+/*.changeDP-card .UploadDp input {
+    cursor: pointer;
+    background: var(--color-primary);
+    color: white;
+    padding: 1em;
+    border-radius: var(--card-border-radius);
+    font-size: 12px;
+}*/
+
+
+.changeDP-card img {
+  
+    max-height: 200px;
+    width: auto;
+    max-width: 500px;
+    margin: 1em;
+    
+}
+
+.changeDP-card .UploadDp input[type="file"] {
+    display: none;
+}
+
+
+
+.interaction-buttons button{
+    background: none;
+}
+
+
+.interaction-buttons i{
+    font-size: 25px;
+}
+
+.interaction-buttons button i:hover {
+    color: red;
+    overflow: hidden;
+    border-radius: 50px;
+    text-shadow: 0 0 10px red;
+
+}
+
+.interaction-buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.likeActive {
+    color: red;
+    
+}
+
+.postoptions {
+    display: none;
+    position: absolute;
+    background-color: white;
+    z-index: 100;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    align-items: center;
+    box-shadow: 0 0 1rem var(--color-primary);
+    margin-left: -4.5em;
+    /* other styles */
+}
+
+.options-card-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.options-card-menu a:hover {
+    background-color: var(--color-secondary);
+}
+
+.options-card-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    width: fit-content;
+    margin: -1rem;
+
+}
+
+.options-card-menu a {
+    padding: .9em;
+    display: flex;
+    width: 150px;
+    align-items: center;
+    user-select: none;
+}
+
+.options-card-menu a:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.options-card-menu a:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.options-card-menu a i {
+    font-size: 20px;
+    margin-right: .8em;
+}
+
+.uil-ellipsis-h{
+    cursor: pointer;
+}
+.active .postoptions{
+    display: flex;
+}
+
+
+.LikedBy {
+    background: rgba(0, 0, 0, 0.219);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    text-align: center;
+    place-items: center;
+    font-size: 0.9rem;
+    display: none;
+    align-items: center;
+}
+
+
+.LikedByCard {
+    background: var(--color-white);
+    padding: 3rem;
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 0 1rem var(--color-primary);
+    width: 50%;
+    height: 70%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.LikedByCard h2 {
+    color: black;
+    position: relative;
+    margin: 1em;
+}
+
+.LikedByCard img{
+    width: 50px;
+    height: 50px;
+}
+
+.profileInfo{
+    display: flex;
+}
+.middle{
+    display: none;
+}
+.right{
+    display: none;
+}
+
+/*========================ProfilePage===========================*/
+
+.profileButtons{
+    margin-top: 1rem;
+}
+
+.followButton{
+    background: var(--color-primary);
+    padding: var(--btn-padding);
+    border-radius: var(--card-border-radius);
+    cursor: pointer; 
+    color: white;
+}
+
+.followButton:hover{
+    opacity: .9;
+    transition: all 300ms ease;  
+}
+
+.followActive{
+    background: var(--color-gray);
+}
+
+
+/*===================
+Media Queries for small laptops and big tablets
+===========*/
+@media screen and (max-width: 1200px) {
+
+    .container {
+        width: 96%;
+    }
+
+    main .container {
+        grid-template-columns: 5rem auto 30vw;
+    }
+
+    .left {
+        width: 5rem;
+        z-index: 5;
+    }
+
+    main .container .left .profile {
+        display: none;
+    }
+
+    .sidebar h3 {
+        display: none;
+    }
+
+    .left .btn {
+        display: none;
+    }
+
+    .customize-theme .card {
+        width: 92vw;
+    }
+}
+
+/*==========MediaQueries for small tablets and mobile phones=============*/
+@media screen and (max-width: 992px) {
+    nav .search-bar {
+        display: none;
+        flex-direction: row;
+        margin-left: -1rem;
+        width: 35%;
+    }
+    nav .search-bar i{
+        display: none;
+    }
+
+    nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    main .container .middle {
+        position: absolute;
+        align-items: center;
+        right: 0;
+        left: 0;
+    }
+
+
+    main .container .left .sidebar {
+        display: flex;
+        flex-direction: row;
+        bottom: 0;
+        position: fixed;
+        left: 0;
+        right: 0;
+        justify-content: space-evenly;
+        padding: 0;
+        align-items: center;
+        margin: 0;  
+        border-radius: 0; 
+    }
+        .left .sidebar i {
+            font-size: 1.4rem;
+            color: var (--color-grey);
+            margin: auto;
+            padding: 1em;
+            position: relative;
+        }
+
+    .customize-theme .card {
+        width: 80vw;
+    }
+
+    /*===============Notifications Popup==============*/
+    .left .notification-popup::before {
+        display: absolute;
+        top: 1.3rem;
+        left: calc(20rem - 0.6rem);
+        display: block;
+    }
+
+    main .container .left .middle {
+        grid-column: 1/3;
+    }
+
+    main .container .right {
+        display: none;
+    }
+    #customize-profile {
+        margin-left: -10em;
+    }
+    .postoptions{
+        margin-left: -9.5em;
+    }
+        .profileInfo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: -9em;
+        }
+    
+        .profileInfo .userDetails {
+            display: flex;
+            flex-direction: column;
+            width:30%;
+
+            
+        }  
+        .profileInfo .profilePicture {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    
+        .profileInfo .followersInfo {
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
+            margin-top: 1em;
+        }
+        .profileInfo h3{
+            width: max-content;
+        }
+        .create-card{
+            height: 50%;
+            width: 70%;
+        }
+        .create-card img {
+            max-height: 120px;
+            width: auto;
+            max-width: 100px;
+            margin: 0.5em;
+        }
+        .feeds{
+            margin-bottom: 5rem;
+        }
+        .changeDP-card {
+            width: 80%;
+            height: 50%;
+        }
+        .changeDP-card img {
+            max-height: 120px;
+            width: auto;
+            max-width: 100px;
+            margin: 0.5em;
+        }
+
+}
