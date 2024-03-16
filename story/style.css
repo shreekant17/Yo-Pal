@@ -1,0 +1,236 @@
+@font-face {
+    font-family: 'Daizen';
+    src: url('../Font/Daizen.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Playball';
+    src: url('../Font/Playball-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.left img, .right img{
+    width: 20px;
+    cursor: pointer;
+}
+
+.main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+.main .story{
+    height: 100vh;
+    width: 30vw;
+    
+}
+
+.main .story img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.previous, .next{
+    height: 50vh;
+    width: 10vw;
+    cursor: pointer;
+}
+.previous img, .next img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.logo {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo1 {
+    font-size: 2rem;
+    font-family: 'Playball', cursive;
+    font: 'playball';
+    color: black;
+    user-select: none;
+    background-color: #000080;
+    padding-left: .1rem;
+    padding-right: .25rem;
+    -webkit-text-stroke-color: transparent;
+    -webkit-text-stroke-width: calc(.01em /16);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: 0 0 2px #000080;
+}
+
+.logo2 {
+    font-size: 2rem;
+    font-family: 'Daizen', sans-serif;
+    font: 'Daizen';
+    color: black;
+    user-select: none;
+    background-color: aqua;
+    padding-left: .135rem;
+    padding-right: .3rem;
+    -webkit-text-stroke-color: transparent;
+    -webkit-text-stroke-width: calc(.01em /16);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: 0 0 2px aqua;
+}
+
+nav{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+h3{
+    margin: 0;
+}
+
+
+
+.close a{
+    cursor: pointer;
+}
+a{
+    color: black;
+}
+
+
+.story-card{
+    
+    background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.287) 100%);
+    
+    height: 100%;
+    border-radius: 10px;
+}
+
+.profile{
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    margin: 1rem;
+    
+    
+}
+.profile p{
+    color: white;
+    margin:0;
+    text-shadow: 7px 7px 10px rgba(0, 0, 0, 0.954);
+}
+
+.profile .dp{
+    margin-right: .5rem;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.profile .dp img{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+.caption{
+    position: absolute;
+    display: none;
+    bottom: 0;
+}
+
+.time{
+    font-size: 13px;
+}
+
+.next .profile , .previous .profile{
+    transform: scale(.8);
+    margin: .2rem;
+}
+
+.loading_main {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.main .story .loading_main img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 6rem;
+
+}
+
+@media screen and (max-width: 556px) {
+    *{
+        margin: 0;
+    }
+    .logo{
+        display: none;
+    }
+    .next, .previous{
+        display: none;
+    }
+    .main .story{
+        height: 100vh;
+        width: 100vw;
+    }
+    .left, .right{
+        height: 90%;
+        width: 50px;
+        position: absolute;
+    }
+    .left img, .right img{
+        display: none;
+    }
+    .right{
+        right: 0;
+    }
+    .close img{
+        background: rgba(255, 255, 255, 0.501);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+    }
+    .close{
+        width: 40px;
+        height: 40px;
+        margin: 1rem;
+    }
+    nav{
+        padding-right: 0;
+        
+    }
+    .story-card{
+        border-radius: 0;
+    }
+}

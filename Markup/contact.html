@@ -1,79 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us</title>
     <style>
-      /* CSS styles for the Contact Us page */
       body {
         font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 20px;
+        margin: 20px;
       }
 
-      h1 {
+      h2 {
         color: #333;
       }
 
-      .contact-form {
-        max-width: 400px;
-        margin: 0 auto;
-      }
-
-      .form-group {
-        margin-bottom: 20px;
-      }
-
-      .form-group label {
-        display: block;
-        margin-bottom: 5px;
-        color: #333;
-        font-weight: bold;
-      }
-
-      .form-group input,
-      .form-group textarea {
-        width: 100%;
-        padding: 10px;
-        font-size: 14px;
-      }
-
-      .form-group textarea {
-        height: 150px;
-      }
-
-      .form-group button {
-        padding: 10px 20px;
-        background-color: #333;
-        color: #fff;
-        border: none;
-        cursor: pointer;
+      .contact-info {
+        margin-top: 20px;
       }
     </style>
   </head>
   <body>
-    <h1>Contact Us</h1>
+    <h2>Contact Us</h2>
 
-    <div class="contact-form">
-      <form action="submit_form.php" method="post">
-        <div class="form-group">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-
-        <div class="form-group">
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <button type="submit">Send Message</button>
-        </div>
-      </form>
+    <div class="contact-info">
+      <p>
+        Shreekant Kalwar:
+        <a href="mailto:shreekantkalwar@gmail.com">shreekantkalwar@gmail.com</a>
+      </p>
+      <p>
+        Aishwarya Borah:
+        <a href="mailto:borahaishwarya06@gmail.com"
+          >borahaishwarya06@gmail.com</a
+        >
+      </p>
     </div>
   </body>
 </html>
