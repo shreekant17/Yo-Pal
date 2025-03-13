@@ -369,7 +369,7 @@
                 }
                 $notActionBy=$rownot['ActionBy'];
                 $notPostId=$rownot['PostId'];
-                $notifierdata="SELECT Fname, DPsrc from userAccount where Email='$notActionBy'";
+                $notifierdata="SELECT Fname, DPsrc from useraccount where Email='$notActionBy'";
                 $resultNotifierData=$conn->query($notifierdata);
                 $rowNotifierData = $resultNotifierData->fetch_assoc();
                 $notifierName=$rowNotifierData['Fname'];
@@ -394,7 +394,7 @@
                       </div>
                       <?php
                       if($notPostId!=NULL){
-                        $getPostSrc="SELECT PostAddress, VideoAddress from allPosts where PostId='$notPostId'";
+                        $getPostSrc="SELECT PostAddress, VideoAddress from allposts where PostId='$notPostId'";
                         $resultGetPostSrc=$conn->query($getPostSrc);
                         $rowGetPostSrc = $resultGetPostSrc->fetch_assoc();
                         $notPostSrc=$rowGetPostSrc['PostAddress'];
@@ -427,7 +427,7 @@
       <div class="ExplorePage">
         <?php 
         $myUsername=$_SESSION['username'];
-        $getPeople="Select * from userAccount where not email='$email'";
+        $getPeople="Select * from useraccount where not email='$email'";
         $getPeopleResult = mysqli_query($conn, $getPeople);
         
         ?>

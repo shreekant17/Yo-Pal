@@ -1,7 +1,7 @@
 <?php  
  include('auth/check_login.php');
  require_once('auth/check_login.php');
- $query="SELECT * FROM allPosts order by PostedOn desc";
+ $query="SELECT * FROM allposts order by PostedOn desc";
  $result=mysqli_query($conn,$query); 
 ?>
 <!DOCTYPE html>
@@ -704,7 +704,7 @@
           <div class="profileInfo">
             <?php
                 $profileusername=$_GET['username'];
-                $queryPostCount="SELECT * from userAccount where Username='$profileusername'";
+                $queryPostCount="SELECT * from useraccount where Username='$profileusername'";
                 $postCountResult=mysqli_query($conn, $queryPostCount);
                 $rowPostCount=mysqli_fetch_assoc($postCountResult);
                 $currPostCount=$rowPostCount['PostsCount'];
@@ -1064,7 +1064,7 @@
                 }
                 $notActionBy=$rownot['ActionBy'];
                 $notPostId=$rownot['PostId'];
-                $notifierdata="SELECT Fname, DPsrc from userAccount where Email='$notActionBy'";
+                $notifierdata="SELECT Fname, DPsrc from useraccount where Email='$notActionBy'";
                 $resultNotifierData=$conn->query($notifierdata);
                 $rowNotifierData = $resultNotifierData->fetch_assoc();
                 $notifierName=$rowNotifierData['Fname'];
@@ -1085,7 +1085,7 @@
                       </div>
                       <?php
                       if($notPostId!=NULL){
-                        $getPostSrc="SELECT PostAddress, VideoAddress from allPosts where PostId='$notPostId'";
+                        $getPostSrc="SELECT PostAddress, VideoAddress from allposts where PostId='$notPostId'";
                         $resultGetPostSrc=$conn->query($getPostSrc);
                         $rowGetPostSrc = $resultGetPostSrc->fetch_assoc();
                         $notPostSrc=$rowGetPostSrc['PostAddress'];
@@ -1165,7 +1165,7 @@
         if($followersCounts>0){
           while($getFollowersRow=mysqli_fetch_assoc($getFollowersResult)){
               $followerUsername=$getFollowersRow['Follower'];
-              $followerData="Select Fname, Lname, Username, DPsrc from userAccount where Username='$followerUsername'";
+              $followerData="Select Fname, Lname, Username, DPsrc from useraccount where Username='$followerUsername'";
               $followerDataResult=mysqli_query($conn,$followerData);
               $followerDataRow=mysqli_fetch_assoc($followerDataResult);
               $followerName=$followerDataRow['Fname'].' '.$followerDataRow['Lname'];
@@ -1210,7 +1210,7 @@
         if($followingCounts>0){
           while($getFollowingRow=mysqli_fetch_assoc($getFollowingResult)){
               $followingUsername=$getFollowingRow['Following'];
-              $followingData="Select Fname, Lname, Username, DPsrc from userAccount where Username='$followingUsername'";
+              $followingData="Select Fname, Lname, Username, DPsrc from useraccount where Username='$followingUsername'";
               $followingDataResult=mysqli_query($conn,$followingData);
               $followingDataRow=mysqli_fetch_assoc($followingDataResult);
               $followingName=$followingDataRow['Fname'].' '.$followingDataRow['Lname'];

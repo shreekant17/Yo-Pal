@@ -4,7 +4,7 @@ $email=$_SESSION['email'];
 $commentInput=$_POST['commentInput'];
 $commentInput=addslashes($commentInput);
 $postId=$_POST['postId'];
-$setCommentId="SELECT ADDTIME(current_timestamp,'0 9:30:0'), PostedBy, CommentsCount from allPosts where PostId='$postId'";
+$setCommentId="SELECT ADDTIME(current_timestamp,'0 9:30:0'), PostedBy, CommentsCount from allposts where PostId='$postId'";
 $result1 = $conn->query($setCommentId);
 $row1 = $result1->fetch_assoc();
 $commentsCount=$row1['CommentsCount'];
@@ -15,7 +15,7 @@ $ActionText="Commented on your post";
 if($commentInput!=''){
     $setComment="INSERT into comments (CommentId, Comment, PostId, CommentedBy, CommentedOn) VALUES ('$commentId', '$commentInput', '$postId', '$email', '$currTime')";
     $result2 = $conn->query($setComment);
-    $updateCommentsCount="UPDATE allPosts set CommentsCount=CommentsCount+1 where postId='$postId'";
+    $updateCommentsCount="UPDATE allposts set CommentsCount=CommentsCount+1 where postId='$postId'";
     $result3 = $conn->query($updateCommentsCount);
     $_SESSION['commentInputValue']="";
     if($email!=$PosterId){

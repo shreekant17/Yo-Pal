@@ -23,7 +23,7 @@ $pass = $_POST['password'];
 //$sanitized_email = mysqli_real_escape_string($conn, $email);
 //$sanitized_password = mysqli_real_escape_string($conn, $pass);
 
-$sql = "SELECT * FROM userAccount WHERE email = '$email'";
+$sql = "SELECT * FROM useraccount WHERE email = '$email'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

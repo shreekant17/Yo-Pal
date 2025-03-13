@@ -6,7 +6,7 @@ include('../auth/check_login.php');
     $limit = 5;
     $roww=($page-1)*$limit;
 
-    $sql="SELECT * FROM allPosts, userAccount where userAccount.username='$profileusername' and allPosts.PostedBy=userAccount.Email order by PostedOn desc limit $roww, $limit";
+    $sql="SELECT * FROM allposts, useraccount where useraccount.username='$profileusername' and allposts.PostedBy=useraccount.Email order by PostedOn desc limit $roww, $limit";
     $result=mysqli_query($conn, $sql); 
 ?>
     <div class="feeds">
@@ -269,7 +269,7 @@ include('../auth/check_login.php');
                               $commentedBy=$rowShowComments['CommentedBy'];
                               $comment=$rowShowComments['Comment'];
                               $commentedOn=$rowShowComments['CommentedOn'];
-                              $commentatorData="SELECT Fname, Lname, DPsrc, Username from userAccount where Email='$commentedBy'";
+                              $commentatorData="SELECT Fname, Lname, DPsrc, Username from useraccount where Email='$commentedBy'";
                               $commentatorDataResult=$conn->query($commentatorData);
                               $rowcommentatorData = $commentatorDataResult->fetch_assoc();
                               $commentatorName=$rowcommentatorData['Fname']." ".$rowcommentatorData['Lname'];
@@ -439,7 +439,7 @@ include('../auth/check_login.php');
                   
                     $likeSql="select * from likes where PostId='$postId' limit 3";
                     $result3=mysqli_query($conn,$likeSql);
-                    $likeSql2="select likesCount from allPosts where PostId='$postId'";
+                    $likeSql2="select likesCount from allposts where PostId='$postId'";
                     $result4=mysqli_query($conn,$likeSql2);
                     $row4=mysqli_fetch_assoc($result4);
                     $likeSql3="select Username, DPsrc from likes where PostId='$postId'";

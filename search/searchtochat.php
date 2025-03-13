@@ -9,7 +9,7 @@ if(isset($_POST['input'])){
         if(isset($_SESSION['email'])){
             $myUsername=$_SESSION['username'];
         }
-        $getPeople="Select * from userAccount where Fname like '{$input}%' or username like '{$input}%' or Lname like '%{$input}%'";
+        $getPeople="Select * from useraccount where Fname like '{$input}%' or username like '{$input}%' or Lname like '%{$input}%'";
         $getPeopleResult = mysqli_query($conn, $getPeople);
         if(mysqli_num_rows($getPeopleResult) > 0){
         ?>

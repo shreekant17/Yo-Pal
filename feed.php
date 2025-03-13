@@ -2,7 +2,7 @@
  include('auth/check_login.php');
  require_once('auth/check_login.php');
  $postId=$_GET['postId'];
- $query="SELECT * FROM allPosts where postId='$postId'";
+ $query="SELECT * FROM allposts where postId='$postId'";
  $result=mysqli_query($conn,$query); 
 ?>
 <!DOCTYPE html>
@@ -409,7 +409,7 @@
                 $row=mysqli_fetch_assoc($result);
                     $postId=$row['PostId'];
                     $postedBy=$row['PostedBy'];
-                    $sqlGetPostData="SELECT DPsrc, Fname, Lname, Username FROM userAccount where email='$postedBy'";
+                    $sqlGetPostData="SELECT DPsrc, Fname, Lname, Username FROM useraccount where email='$postedBy'";
                     $result2=mysqli_query($conn,$sqlGetPostData);
                     $row2=mysqli_fetch_assoc($result2);
                     if($row2['DPsrc']!=NULL){
@@ -605,7 +605,7 @@
                   <?php 
                     $likeSql="select * from likes where PostId='$postId' limit 3";
                     $result3=mysqli_query($conn,$likeSql);
-                    $likeSql2="select likesCount from allPosts where PostId='$postId'";
+                    $likeSql2="select likesCount from allposts where PostId='$postId'";
                     $result4=mysqli_query($conn,$likeSql2);
                     $row4=mysqli_fetch_assoc($result4);
                     $likeSql3="select Username, DPsrc from likes where PostId='$postId'";
@@ -691,7 +691,7 @@
                                 $commentedBy=$rowShowComments['CommentedBy'];
                                 $comment=$rowShowComments['Comment'];
                                 $commentedOn=$rowShowComments['CommentedOn'];
-                                $commentatorData="SELECT Fname, Lname, DPsrc, Username from userAccount where Email='$commentedBy'";
+                                $commentatorData="SELECT Fname, Lname, DPsrc, Username from useraccount where Email='$commentedBy'";
                                 $commentatorDataResult=$conn->query($commentatorData);
                                 $rowcommentatorData = $commentatorDataResult->fetch_assoc();
                                 $commentatorName=$rowcommentatorData['Fname']." ".$rowcommentatorData['Lname'];
@@ -1006,7 +1006,7 @@
                 }
                 $notActionBy=$rownot['ActionBy'];
                 $notPostId=$rownot['PostId'];
-                $notifierdata="SELECT Fname, DPsrc from userAccount where Email='$notActionBy'";
+                $notifierdata="SELECT Fname, DPsrc from useraccount where Email='$notActionBy'";
                 $resultNotifierData=$conn->query($notifierdata);
                 $rowNotifierData = $resultNotifierData->fetch_assoc();
                 $notifierName=$rowNotifierData['Fname'];
@@ -1024,7 +1024,7 @@
                       </div>
                       <?php
                       if($notPostId!=NULL){
-                        $getPostSrc="SELECT PostAddress, VideoAddress from allPosts where PostId='$notPostId'";
+                        $getPostSrc="SELECT PostAddress, VideoAddress from allposts where PostId='$notPostId'";
                         $resultGetPostSrc=$conn->query($getPostSrc);
                         $rowGetPostSrc = $resultGetPostSrc->fetch_assoc();
                         $notPostSrc=$rowGetPostSrc['PostAddress'];
@@ -1093,7 +1093,7 @@
       <div class="ExplorePage">
         <?php 
         $myUsername=$_SESSION['username'];
-        $getPeople="Select * from userAccount where not email='$email'";
+        $getPeople="Select * from useraccount where not email='$email'";
         $getPeopleResult = mysqli_query($conn, $getPeople);
         
         ?>

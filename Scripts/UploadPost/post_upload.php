@@ -15,7 +15,7 @@
     $email=$_SESSION['email'];
     $userName=$_SESSION['username'];
     
-    $sql="SELECT PostsCount, DeletedPosts FROM userAccount WHERE email = '$email'";
+    $sql="SELECT PostsCount, DeletedPosts FROM useraccount WHERE email = '$email'";
     $result= $conn->query($sql);
     $row = $result->fetch_assoc();
     $postCount=$row['PostsCount'];
@@ -32,14 +32,14 @@
     $caption=$_POST['captionText'];
     $caption=addslashes($caption);
     if(isset($_FILES["createUpload"])){
-        $sql="INSERT INTO allPosts (PostID, PostedBy, LikesCount, CommentsCount, Caption, PostAddress, PostedOn) values ('$postId', '$email', 0,0, '$caption', '$postAddress', '$postedOn')";
+        $sql="INSERT INTO allposts (PostID, PostedBy, LikesCount, CommentsCount, Caption, PostAddress, PostedOn) values ('$postId', '$email', 0,0, '$caption', '$postAddress', '$postedOn')";
         $conn->query($sql);
     }
     else{
-        $sql="INSERT INTO allPosts (PostID, PostedBy, LikesCount, CommentsCount, Caption, VideoAddress, PostedOn) values ('$postId', '$email', 0,0, '$caption', '$postAddress', '$postedOn')";
+        $sql="INSERT INTO allposts (PostID, PostedBy, LikesCount, CommentsCount, Caption, VideoAddress, PostedOn) values ('$postId', '$email', 0,0, '$caption', '$postAddress', '$postedOn')";
         $conn->query($sql);
     }
-    $sql="UPDATE userAccount set PostsCount=PostsCount+1 where email='$email'";
+    $sql="UPDATE useraccount set PostsCount=PostsCount+1 where email='$email'";
     $conn->query($sql);
     $conn->close();
     header("location:../../index.php");

@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
     $email = $_COOKIE['email'];
     $pass = $_COOKIE['password'];
-    $sql = "SELECT * FROM userAccount WHERE email = '$email'";
+    $sql = "SELECT * FROM useraccount WHERE email = '$email'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -50,7 +50,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
 elseif (isset($_SESSION['email'])){
     $email = $_SESSION['email'];
     $pass = $_SESSION['password'];
-    $sql = "SELECT * FROM userAccount WHERE email = '$email'";
+    $sql = "SELECT * FROM useraccount WHERE email = '$email'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

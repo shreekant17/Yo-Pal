@@ -12,7 +12,7 @@
     move_uploaded_file($tempname, '../../'.$folder);
 
     //change Database Location
-    $sql ="UPDATE userAccount set DPsrc='$folder' WHERE Email='$email'";
+    $sql ="UPDATE useraccount set DPsrc='$folder' WHERE Email='$email'";
     $sql2 ="UPDATE likes set DPsrc='$folder' WHERE LikedBy='$email'";
     $conn->query($sql); 
     $conn->query($sql2); 

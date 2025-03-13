@@ -1,7 +1,7 @@
 <?php
     require_once('../LoginRegister/check_login.php');
     $email=$_SESSION['email'];
-    $sql="SELECT PostsCount, DeletedPosts FROM userAccount WHERE email = '$email'";
+    $sql="SELECT PostsCount, DeletedPosts FROM useraccount WHERE email = '$email'";
     $result= $conn->query($sql);
     $row = $result->fetch_assoc();
     $postCount=$row['PostsCount'];
@@ -16,9 +16,9 @@
     $stringlength=strlen($caption)-substr_count($caption,' ');
     if($stringlength>3){
         $caption=addslashes($caption);
-        $sql="INSERT INTO allPosts (PostID, PostedBy, LikesCount, CommentsCount, Caption, PostedOn) values ('$postId', '$email', 0,0, '$caption', '$postedOn')";
+        $sql="INSERT INTO allposts (PostID, PostedBy, LikesCount, CommentsCount, Caption, PostedOn) values ('$postId', '$email', 0,0, '$caption', '$postedOn')";
         $conn->query($sql);
-        $sql="UPDATE userAccount set PostsCount=PostsCount+1 where email='$email'";
+        $sql="UPDATE useraccount set PostsCount=PostsCount+1 where email='$email'";
         $conn->query($sql);
     }
     header("location:../../index.php");

@@ -1,16 +1,6 @@
 <?php
 session_start();
-// establish connection to MySQL database
-$host = "localhost";
-$user = "root";
-$password = '';
-$dbname = "yopal";
-$conn = mysqli_connect($host, $user, $password, $dbname);
-
-// check if connection was successful
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+require_once('database.php');
 
 // get username and age from form
 $fname = $_POST['fname'];
@@ -23,7 +13,7 @@ $gender=$_POST['gender'];
 
 
 // insert username and age into users table
-$sql = "INSERT INTO userAccount(Fname, Lname, Username, Email, Password, Date_of_birth, Gender, Followers, Followings, PostsCount, DeletedPosts, StoriesCount, DeletedStories) VALUES ('$fname', '$lname','$uname','$email','$upassword','$dob', '$gender',0,0,0,0,0,0)";
+$sql = "INSERT INTO useraccount(Fname, Lname, Username, Email, Password, Date_of_birth, Gender, Followers, Followings, PostsCount, DeletedPosts, StoriesCount, DeletedStories) VALUES ('$fname', '$lname','$uname','$email','$upassword','$dob', '$gender',0,0,0,0,0,0)";
 if (mysqli_query($conn, $sql)) {
     mkdir("../users/$email");
     mkdir("../users/$email/dp");

@@ -9,7 +9,7 @@
     $clikeSql = "select * from likes where PostId='$postId' limit 3";
     $cresult3 = mysqli_query($conn, $clikeSql);
 
-    $clikeSql2 = "select likesCount from allPosts where PostId='$postId'";
+    $clikeSql2 = "select likesCount from allposts where PostId='$postId'";
     $cresult4 = mysqli_query($conn,$clikeSql2);
     $crow4 = mysqli_fetch_assoc($cresult4);
 

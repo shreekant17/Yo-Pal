@@ -23,7 +23,7 @@ $gender=$_POST['gender'];
 
 
 // insert username and age into users table
-$sql = "INSERT INTO userAccount(Fname, Lname, Username, Email, Password, Date_of_birth, Gender, Followers, Followings, PostsCount, DeletedPosts, StoriesCount, DeletedStories) VALUES ('$fname', '$lname','$uname','$email','$upassword','$dob', '$gender',0,0,0,0,0,0)";
+$sql = "INSERT INTO useraccount(Fname, Lname, Username, Email, Password, Date_of_birth, Gender, Followers, Followings, PostsCount, DeletedPosts, StoriesCount, DeletedStories) VALUES ('$fname', '$lname','$uname','$email','$upassword','$dob', '$gender',0,0,0,0,0,0)";
 if (mysqli_query($conn, $sql)) {
     mkdir("../../users/$email");
     mkdir("../../users/$email/dp");

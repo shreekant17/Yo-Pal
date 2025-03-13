@@ -291,7 +291,7 @@
             <div class="stories">
               <?php
               $email=$_SESSION['email'];
-              $Yourstory="select *, DPsrc, Fname from allStories, userAccount where StoryBy='$email' and allStories.StoryBy=userAccount.Email order by StoryPostedOn desc limit 1";
+              $Yourstory="select *, DPsrc, Fname from allstories, useraccount where StoryBy='$email' and allstories.StoryBy=useraccount.Email order by StoryPostedOn desc limit 1";
               $YourstoryResult=$conn->query($Yourstory);
               $checkYourStory=mysqli_num_rows($YourstoryResult);
               if ($checkYourStory!=1) {?>
@@ -323,7 +323,7 @@
               }
               
               
-              $story="select StoryBy, max(StoryId), max(StoryAddress), min(StoryPostedOn), max(Fname), max(DPsrc) from allStories, userAccount where allStories.StoryBy=userAccount.Email and allStories.StoryBy!='$email' group by StoryBy order by max(StoryPostedOn) desc";
+              $story="select StoryBy, max(StoryId), max(StoryAddress), min(StoryPostedOn), max(Fname), max(DPsrc) from allstories, useraccount where allstories.StoryBy=useraccount.Email and allstories.StoryBy!='$email' group by StoryBy order by max(StoryPostedOn) desc";
               $storyResult=mysqli_query($conn,$story);
               while($storyRow=mysqli_fetch_assoc($storyResult)){
                 $storyId=$storyRow['max(StoryId)'];
@@ -733,7 +733,7 @@
                 }
                 $notActionBy=$rownot['ActionBy'];
                 $notPostId=$rownot['PostId'];
-                $notifierdata="SELECT Fname, DPsrc from userAccount where Email='$notActionBy'";
+                $notifierdata="SELECT Fname, DPsrc from useraccount where Email='$notActionBy'";
                 $resultNotifierData=$conn->query($notifierdata);
                 $rowNotifierData = $resultNotifierData->fetch_assoc();
                 $notifierName=$rowNotifierData['Fname'];
@@ -754,7 +754,7 @@
                       </div>
                       <?php
                       if($notPostId!=NULL){
-                        $getPostSrc="SELECT PostAddress, VideoAddress from allPosts where PostId='$notPostId'";
+                        $getPostSrc="SELECT PostAddress, VideoAddress from allposts where PostId='$notPostId'";
                         $resultGetPostSrc=$conn->query($getPostSrc);
                         $rowGetPostSrc = $resultGetPostSrc->fetch_assoc();
                         $notPostSrc=$rowGetPostSrc['PostAddress'];
@@ -789,7 +789,7 @@
         <?php 
 
         $myUsername=$_SESSION['username'];
-        $getPeople="Select * from userAccount where not email='$email'";
+        $getPeople="Select * from useraccount where not email='$email'";
         $getPeopleResult = mysqli_query($conn, $getPeople);
         
         ?>

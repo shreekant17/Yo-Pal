@@ -1,28 +1,16 @@
 <?php
-session_start();
-// Database connection details
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$dbname = 'yopal';
 
 
-// Create database connection
-$conn = new mysqli($host, $user, $password, $dbname);
+require_once('database.php');
 
-$conn->set_charset("utf8mb4");
 
-// Check for connection errors
-if ($conn->connect_error) {
-  die('Connection failed: ' . $conn->connect_error);
-}
 
 // Check for cookie
 
 if (isset($_COOKIE['email'])) {
     $email = $_COOKIE['email'];
     //$pass = $_COOKIE['password'];
-    $sql = "SELECT * FROM userAccount WHERE email = '$email'";
+    $sql = "SELECT * FROM useraccount WHERE email = '$email'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

@@ -1,19 +1,7 @@
 
 <?php
 session_start();
-// Database connection details
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$dbname = 'yopal';
-
-// Create database connection
-$conn = new mysqli($host, $user, $password, $dbname);
-
-// Check for connection errors
-if ($conn->connect_error) {
-  die('Connection failed: ' . $conn->connect_error);
-}
+require_once('database.php');
 
 // Check if email address is present in table
 $email = $_POST['email'];
@@ -22,7 +10,7 @@ $pass = $_POST['password'];
 //$sanitized_email = mysqli_real_escape_string($conn, $email);
 //$sanitized_password = mysqli_real_escape_string($conn, $pass);
 
-$sql = "SELECT * FROM userAccount WHERE email = '$email'";
+$sql = "SELECT * FROM useraccount WHERE email = '$email'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

@@ -2,11 +2,7 @@
 
 session_start();
 // Database connection details
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$dbname = 'yopal';
-
+require_once('db.php');
 
 // Create database connection
 $conn = new mysqli($host, $user, $password, $dbname);
@@ -17,6 +13,5 @@ $conn->set_charset("utf8mb4");
 if ($conn->connect_error) {
   die('Connection failed: ' . $conn->connect_error);
 }
-
 
 ?>

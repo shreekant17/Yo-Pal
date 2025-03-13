@@ -9,7 +9,7 @@ $folder = "users/".$email."/stories"."/".$filename;
 move_uploaded_file($tempname, '../../'.$folder);
 
 
-$sql="SELECT StoriesCount, DeletedStories FROM userAccount WHERE email = '$email'";
+$sql="SELECT StoriesCount, DeletedStories FROM useraccount WHERE email = '$email'";
 $result= $conn->query($sql);
 $row = $result->fetch_assoc();
 $storiesCount=$row['StoriesCount'];
@@ -25,9 +25,9 @@ $storyPostedOn = $row["ADDTIME(current_timestamp,'0 9:30:0')"];
 $storyId =$newStoryCount.'_'.$email;
 $caption=$_POST['captionTextStory'];
 $caption=addslashes($caption);
-$sql="INSERT INTO allStories (StoryId, StoryBy, ViewsCount, LikesCount, Caption, StoryAddress, StoryPostedOn) values ('$storyId', '$email', 0,0,'$caption', '$storyAddress', '$storyPostedOn')";
+$sql="INSERT INTO allstories (StoryId, StoryBy, ViewsCount, LikesCount, Caption, StoryAddress, StoryPostedOn) values ('$storyId', '$email', 0,0,'$caption', '$storyAddress', '$storyPostedOn')";
 $conn->query($sql);
-$sql="UPDATE userAccount set StoriesCount=StoriesCount+1 where email='$email'";
+$sql="UPDATE useraccount set StoriesCount=StoriesCount+1 where email='$email'";
 $conn->query($sql);
 $conn->close();
 header("location:../../index.php");
