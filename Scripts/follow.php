@@ -1,5 +1,5 @@
 <?php
-require_once('LoginRegister/check_login.php');
+require_once('../auth/check_login.php');
 $stalker=$_SESSION['username'];
 $profileusername=$_POST['userId'];
 $sql="select * from friends where Follower='$stalker' and Following='$profileusername'";
