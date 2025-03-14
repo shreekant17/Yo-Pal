@@ -144,6 +144,7 @@
             $('#user<?php echo $userName;?>').click(function(){
                   var user_data = "<?php echo $user_email; ?>";
                   $.ajax({
+                      crossDomain: true,
                       url:"current_chat.php",
                       method: "POST",
                       data: {user_data : user_data},

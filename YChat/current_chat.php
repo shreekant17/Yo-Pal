@@ -170,6 +170,7 @@
               .then(function () {
               // The Firestore data is stored, now make an AJAX request to script.php
               $.ajax({
+                crossDomain: true,
                   type: 'POST',
                   url: 'save_chat.php',
                   data: {

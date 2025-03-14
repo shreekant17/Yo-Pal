@@ -1,5 +1,5 @@
 <?php
-require_once('../LoginRegister/check_login.php');
+require_once('../../auth/check_login.php');
 $email=$_SESSION['email'];
 $postId=$_POST['postId'];
 $postAddress="../../".$_POST['postAddress'];
